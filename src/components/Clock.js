@@ -6,18 +6,18 @@ const Clock = () =>{
     const [minutes, setMinutes] = useState(60);
     const [seconds, setSeconds] = useState(60);
     useEffect(()=>{
-        setInterval(()=>setSeconds(seconds-1),1000);
         if(days > 0){
-            if(seconds <= 0){
+            setInterval(()=>setSeconds(seconds-1),1000);
+            if(seconds == 0){
                 setMinutes(minutes -1);
                 setSeconds(60);
             }
-            if(minutes <= 0){
+            if(minutes == 0){
                 setHours(hours-1);
                 setMinutes(60);
                 setSeconds(60);
             } 
-            if(hours <= 0){
+            if(hours == 0){
                 setHours(24);
                 setDays(days-1);
                 setMinutes(60);
