@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+:root{
+  --white: hsl(0, 0%, 100%);
+  --dark-desaturated-blue: hsl(236, 21%, 26%);
+  --very-dark-blue: hsl(235, 16%, 14%);
+  --very-darker-blue: hsl(234, 17%, 12%);
+  --grayish-blue: hsl(237, 18%, 59%);
+  --soft-red: hsl(345, 95%, 68%);
+  --border-rad: 0.5em;
+  font-size: 14px;
+  font-family: "Red Hat Text",sans-serif;
+  font-weight: 700;
+}
+*{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: var(--very-dark-blue);
+  background-image: url("./images/bg-stars.svg");
+  color: var(--white);
+}
+main{
+  height: 100%;
+}
+.container{
+    margin: 7em auto;
+    width: fit-content;
+  & h1{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.5em;
+    font-stretch:semi-expanded;
+  }
+}
+
+.clock-container{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  margin: 4em auto;
+  gap: 1em;
+}
+#days,#minutes,#hours,#seconds{
+  width:280px;
+  height: 300px;
+  border-radius: var(--border-rad);
+  text-align: center;
+  border-bottom: 20px solid var(--very-darker-blue);
+  background-color: var(--very-darker-blue);
+}
+.bottom-text{
+  text-transform: uppercase;
+  font-size: 1.3em;
+  color: var(--grayish-blue);
+}
+
+#days::after,
+#minutes::after,
+#hours::after,
+#seconds::after{
+  content: " ";
+  border-radius: 50%;
+  width:24px;
+  height:24px;
+  background-color: var(--very-dark-blue);
+  position:relative;
+  bottom: 400px;
+  left: 264px;
+  display: block;
+  z-index: 10;
+}
+#days::before,
+#hours::before,
+#minutes::before,
+#seconds::before{
+  content: " ";
+  width:24px;
+  height: 24px;
+  background-color: var(--very-dark-blue);
+  border-radius: 50%;
+  position:relative;
+  left: -1em;
+  top: 126px;
+  display: block;
+  z-index: 10;
+}
+
+.top{
+  width:100%;
+  height: 140px;
+  background-color: var(--grayish-blue);
+  border-top-right-radius: var(--border-rad);
+  border-top-left-radius: var(--border-rad);
+  position: relative;
+  bottom: 17.5em;
+  opacity: 0.5;
+}
+
+.bottom{
+  width:100%;
+  height: 140px;
+  background-color: var(--dark-desaturated-blue);
+  border-bottom-right-radius: var(--border-rad);
+  border-bottom-left-radius: var(--border-rad);
+  position: relative;
+  bottom:17.5em;
+  opacity: 0.5;
+}
+.text{
+  color: var(--soft-red);
+  font-size: 12em;
+  background-blend-mode: multiply;
+}
+footer{
+  background-image: url("./images/pattern-hills.svg");
+  height: 200px;
+  width: 100%;
+  background-repeat:round;
+  position: absolute;
+  bottom: 0;
+  & section{
+    width: fit-content;
+    margin: 0 auto;
+    & a {
+      width: fit-content;
+      height: fit-content;
+    }
+    & svg{
+      margin: 4em  1em;   
+      width: 24px;
+      height: 24px;
+      & path{
+        transition: 250ms all ease-in;
+      }
+    }
+    & a :hover{
+        & path{
+          fill: var(--soft-red);
+        }
+    }
+  }
+}
+
+.bottom-text-container{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 1em;
+  text-align: center;
+}
+@media(min-width:300px) and (max-width:629px) {
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+  main{
+    height: 100dvh;
+  }
+  .container{
+    width:100%;
+    & h1{
+      font-size: 2em;
+    }
+  }
+  .clock-container{
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:0.6em;
+    margin:4em 0;
+  }
+  #days,#hours,#minutes,#seconds{
+    width: 85px;
+    height: 110px;
+  }
+  .top{
+    height: 50px;
+    bottom: 90px;
+  }
+  .bottom{
+    height: 50px;
+    bottom: 90px;
+  }
+  .text{
+    font-size: 4em;
+    
+  }
+  .bottom-text{
+    bottom: 0;
+    font-weight: 600;
+    font-size: 1.1em;
+  }
+  #days::before,
+  #hours::before,
+  #minutes::before,
+  #seconds::before{
+  top:45px;
+  left:-0.7em;
+  width:16px;
+  height:16px;
+  }
+  #days::after,
+  #minutes::after,
+  #hours::after,
+  #seconds::after{
+    width:16px;
+    height:16px;
+    background-color: var(--very-dark-blue);
+    bottom:145px;
+    left: 80px;
+  }
+  footer{
+    & section{
+        & svg{
+            transform: scale(1.3);   
+            margin: 5em 2em;
+          }
+    }
+  }
+}
