@@ -28,8 +28,8 @@ Users should be able to:
 
 ### Screenshot
 
-![Desktop version](./ScreenshotDesktop.png)
-![Mobile version](./ScreenshotMobile.png)
+![Desktop version](./src/ScreenshotDesktop.png)
+![Mobile version](./src/ScreenshotMobile.png)
 
 
 
