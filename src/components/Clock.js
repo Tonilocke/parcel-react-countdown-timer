@@ -24,7 +24,7 @@ const Clock = () =>{
                 setSeconds(60);
             }
         }
-    },[seconds,minutes,hours,days]);
+    },[seconds]);
     return(
         <section className="container">
             <h1>We're launching soon</h1>
